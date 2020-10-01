@@ -25,3 +25,12 @@ dsum=: monad define
 cmd=. DLL,' reproBLAS_dsum >+ d i &d i'
 cmd cd (#y);y;1
 )
+
+NB. =========================================================
+NB. reproducible dot product
+
+ddot=: dyad define
+cmd=. DLL,' reproBLAS_ddot >+ d i &d i &d i'
+assert. ($x)=$y
+cmd cd (#x);x;1;y;1
+)
