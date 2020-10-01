@@ -6,9 +6,9 @@ path=: jpath '~addons/math/reproblas/'
 
 3 : 0''
 if. UNAME-:'Linux' do.
-  DLL=: '"',path,'libreproblas.so.2'
+  DLL=: '"',path,'libreproblas.so.2"'
 elseif. UNAME-:'Win' do.
-  DLL=: '"',path,'reproblas.dll'
+  DLL=: '"',path,'reproblas.dll"'
 elseif. do.
   DLL=: ''
 end.
@@ -21,7 +21,7 @@ NB. cd=: 15!:0
 NB. =========================================================
 NB. reproducible sum
 
-dsum=: 3 : 0
+dsum=: monad define
 cmd=. DLL,' reproBLAS_dsum >+ d i &d i'
 cmd cd (#y);y;1
 )
