@@ -34,3 +34,15 @@ cmd=. DLL,' reproBLAS_ddot >+ d i &d i &d i'
 assert. ($x)=$y
 cmd cd (#x);x;1;y;1
 )
+
+NB. =========================================================
+NB. reproducible matrix-vector multiplication
+
+dgemv=: dyad define
+cmd=. DLL,' reproBLAS_dgemv + n c c i i d &d i &d i d *d i'
+assert. 2=#$x
+m=. 0{$x
+n=. 1{$x
+assert. n=#y
+> _2 { cmd cd 'R';'N';m;n;1.;x;n;y;1;0.;(m$0.);1
+)
