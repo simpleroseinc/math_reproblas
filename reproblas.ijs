@@ -31,7 +31,8 @@ NB. reproducible dot product
 
 ddot=: dyad define
 cmd=. DLL,' reproBLAS_ddot >+ d i &d i &d i'
-assert. ($x)=$y
+assert. 1=#@$x
+assert. 1=#@$y
 cmd cd (#x);x;1;y;1
 )
 
