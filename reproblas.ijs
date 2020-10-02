@@ -23,7 +23,7 @@ NB. reproducible sum
 
 dsum=: monad define
 cmd=. DLL,' reproBLAS_dsum >+ d i &d i'
-cmd cd (#y);y;1
+cmd cd (#@, y);y;1
 )
 
 NB. =========================================================
