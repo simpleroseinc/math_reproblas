@@ -42,8 +42,7 @@ NB. reproducible matrix-vector multiplication
 dgemv=: dyad define
 cmd=. DLL,' reproBLAS_dgemv + n c c i i d &d i &d i d *d i'
 assert. 2=#@$x
-m=. 0{$x
-n=. 1{$x
+'m n'=. $x
 assert. n=#y
 > _2 { cmd cd 'R';'N';m;n;1.;x;n;y;1;0.;(m$0.);1
 )
@@ -55,9 +54,8 @@ dgemm=: dyad define
 cmd=. DLL,' reproBLAS_dgemm + n c c c i i i d &d i &d i d *d i'
 assert. 2=#@$x
 assert. 2=#@$y
-m=. 0{$x
-k=. 1{$x
-n=. 1{$y
-assert. k=0{$y
+'m k'=. $x
+'j n'=. $y
+assert. j=k
 > _2 { cmd cd 'R';'N';'N';m;n;k;1.;x;k;y;n;0.;((m,n)$0.);n
 )
