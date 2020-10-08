@@ -12,7 +12,7 @@ See also: https://bebop.cs.berkeley.edu/reproblas/
 
 VERSION=: '1.0.0'
 
-RELEASE=: 'j902'
+RELEASE=: 'j901 j902'
 
 FOLDER=: 'math/reproblas'
 
