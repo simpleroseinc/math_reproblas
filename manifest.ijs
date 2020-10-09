@@ -24,5 +24,5 @@ reproblas.ijs
 
 PLATFORMS=: 'win linux'
 
-FILESLINUX64=: 'libreproblas.so.2'
-FILESWIN64=: 'reproblas.dll'
+FILESLINUX64=: 'libreproBLAS.so.2'
+FILESWIN64=: 'reproBLAS.dll'
