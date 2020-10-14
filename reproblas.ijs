@@ -59,3 +59,18 @@ assert. 2=#@$y
 assert. j=k
 > _2 { cmd cd 'R';'N';'N';m;n;k;1.;x;k;y;n;0.;((m,n)$0.);n
 )
+
+NB. =========================================================
+NB. reproducible inner product (+/ . *)
+dot=: dyad define
+'rx ry' =: (#@$x), (#@$y)
+if. rx=1 *. ry=1 do.
+  x ddot y
+elseif. rx=2 *. ry=1 do.
+  x dgemv y
+elseif. rx=2 *. ry=2 do.
+  x dgemm y
+else.
+  'unimplemented' 13!:8[10
+end.
+)
