@@ -74,3 +74,28 @@ else.
   'unimplemented' 13!:8[10
 end.
 )
+
+incxdsum=: dyad define
+cmd=. DLL,' reproBLAS_dsum >+ d i &d i'
+assert. 1=#@$y
+cmd cd (<.@%&x (_1+x+#y));y;x
+)
+
+NB. =========================================================
+NB. reproducible summation
+NB. sum y     -- add all of the elements of the input array
+NB. x sum y   -- similar to +/"x y
+sum=: verb define
+dsum y
+:
+assert. x <: #@$y
+if. x=1 do.
+  dsum"1 y
+elseif. x=2 do.
+  assert. 2=#@$y
+  incx=. {:@$y
+  (,y) incx&incxdsum F:. }. 0,(incx-1)$1
+else.
+  'unimplemented' 13!:8[10
+end.
+)
