@@ -99,3 +99,24 @@ else.
   'unimplemented' 13!:8[10
 end.
 )
+
+NB. =========================================================
+NB. reproducible matrix multiplication with scale factor
+NB. x (m matmul) y  -- scale the result of x dot y by m
+matmul=: adverb define
+'rx ry' =: (#@$x), (#@$y)
+if. rx=2 *. ry=1 do.
+  cmd=. DLL_jreproblas_,' reproBLAS_dgemv + n c c i i d &d i &d i d *d i'
+  'a b'=. $x
+  assert. b=#y
+  > _2 { cmd cd 'R';'N';a;b;m;x;b;y;1;0.;(a$0.);1
+elseif. rx=2 *. ry=2 do.
+  cmd=. DLL_jreproblas_,' reproBLAS_dgemm + n c c c i i i d &d i &d i d *d i'
+  'a k'=. $x
+  'j b'=. $y
+  assert. j=k
+  > _2 { cmd cd 'R';'N';'N';a;b;k;m;x;k;y;b;0.;((a,b)$0.);b
+else.
+  'unimplemented' 13!:8[10
+end.
+)
