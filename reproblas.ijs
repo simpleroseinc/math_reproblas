@@ -16,6 +16,36 @@ end.
 
 REPROBLAS_VERSION=: 2.1
 
+doc=: 0 : 0
+sum y
+  add all of the elements of the input array, similar to +/ ,y
+
+x sum y
+  add the elements in the y matrix row-wise or column-wise, similar to
+  +/"x y
+  x gives the rank of the summation, 1 for row-wise and 2 for column-wise
+
+x dot y
+  compute the inner product of x and y, similar to x +/ .* y
+  use the following table to determine the rank of the result
+
+    rank of  x    y   result
+             1    1    1
+             2    1    1
+             2    2    2
+
+x (a matmul) y
+  compute matrix multiplication of x and y with a scale factor a, similar
+  to a&* x +/ .* y
+  use the following table to determine the rank of the result
+
+    rank of  x    y   result
+             2    1    1
+             2    2    2
+
+  in other words, x (1. matmul) y is equivalent to x dot y
+)
+
 NB. cd=: 15!:0
 
 NB. =========================================================
