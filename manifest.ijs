@@ -10,7 +10,7 @@ This J addon comes with prebuilt shared libraries.
 See also: https://bebop.cs.berkeley.edu/reproblas/
 )
 
-VERSION=: '1.0.0'
+VERSION=: '1.0.1'
 
 RELEASE=: 'j901 j902'
 
@@ -22,7 +22,8 @@ FILES=: 0 : 0
 reproblas.ijs
 )
 
-PLATFORMS=: 'win linux'
+PLATFORMS=: 'win linux darwin'
 
 FILESLINUX64=: 'libreproBLAS.so.2'
 FILESWIN64=: 'reproBLAS.dll'
+FILESDARWIN64=: 'libreproBLAS.2.dylib'

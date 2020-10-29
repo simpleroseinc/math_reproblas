@@ -6,9 +6,11 @@ path=: jpath '~addons/math/reproblas/'
 
 3 : 0''
 if. UNAME-:'Linux' do.
-  DLL=: '"',path,'libreproblas.so.2"'
+  DLL=: '"',path,'libreproBLAS.so.2"'
 elseif. UNAME-:'Win' do.
   DLL=: '"',path,'reproblas.dll"'
+elseif. UNAME-:'Darwin' do.
+  DLL=: '"',path,'libreproBLAS.2.dylib"'
 elseif. do.
   DLL=: ''
 end.
